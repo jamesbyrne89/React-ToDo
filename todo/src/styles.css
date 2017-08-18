@@ -1,0 +1,11 @@
+
+
+.app {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.date-picker {
+  margin-top: 5rem;
+}
