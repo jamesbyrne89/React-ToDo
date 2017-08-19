@@ -9,4 +9,7 @@
 .date-picker {
   margin-top: 5rem;
   border: solid ;
+  width: 600px;
+  height: 400px;
+  border: solid 2px hotpink;
 }

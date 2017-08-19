@@ -9,18 +9,13 @@ const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 
 
 
 
-class Calendar extends Component {
-  constructor(props) {
-  super(props);
-  this.state = {
+const Calendar = () => {
 
-  };
 
 this.generateCalendar = this.generateCalendar.bind(this);
 this.getMonth = this.getMonth.bind(this);
 this.convertDateToDay = this.convertDateToDay.bind(this);
 
-}
 generateCalendar(numberOfDays, day, month, year) {
  let weekday = months[convertDateToDay(year, month, day)];
  if (weekday in dates) {
