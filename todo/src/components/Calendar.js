@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './../styles.css';
+import DayNames from './DayNames';
+import Week from './Week';
 
 
 const weekDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
@@ -9,58 +11,65 @@ const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 
 
 
 
-const Calendar = () => {
-
-
-this.generateCalendar = this.generateCalendar.bind(this);
-this.getMonth = this.getMonth.bind(this);
-this.convertDateToDay = this.convertDateToDay.bind(this);
-
-generateCalendar(numberOfDays, day, month, year) {
- let weekday = months[convertDateToDay(year, month, day)];
- if (weekday in dates) {
-  dates[weekday].push(day)
- }
- else {
-  dates[weekday] = [day];
-  day++;
-  return day > numberOfDays ? dates : generateCalendar(numberOfDays, month, day, year);
- }
-  }
-
-getMonth() {
-  let date =  new Date(month, year);
-  let numberOfDays = this.date.getDate();
-  let monthName;
-  let firstDay = 0;
-  let calendar;
+class Calendar extends Component {
+	constructor(){
+		super()
+  this.state = {
+      month: this.props.selected
+  };
 };
 
-convertDateToDay() {
-  // Determines the week day based on the date
-  return (new Date(year, month, day)).getDay();
-};
+  previous() {
+    var month = this.state.month;
+    month.add(-1, "M");
+    this.setState({ month: month });
+  };
 
-generateCalendar(numberOfDays, month, day, year) {
-  
-};
+  next() {
+    var month = this.state.month;
+    month.add(1, "M");
+    this.setState({ month: month });
+  };
 
-render() {
+  select(day) {
+    this.props.selected = day.date;
+    this.forceUpdate();
+  };
+
+  render() {
     return (
-      <div className='date-picker'>
-      
-        <header className='header'>
-          <button className='arrow-left'>Left</button>
-          <time className='month'>August</time>
-          <button className='arrow-right'>Right</button>
-        </header>
-        
-        <div className='dates'>
+    	<div>
+	      <div className="header">
+	        <i className="fa fa-angle-left" onClick={this.previous}></i>
+	        {this.renderMonthLabel()}
+	        <i className="fa fa-angle-right" onClick={this.next}></i>
+	      </div>
+	      <DayNames />
+	      {this.renderWeeks.bind(this)}
+    </div>
+    )
+  };
 
-        </div>
-      </div>
-    );
+  renderWeeks() {
+    let weeks = [],
+      done = false,
+      date = this.state.month.clone().startOf("month").add("w" -1).day("Sunday"),
+      monthIndex = date.month(),
+      count = 0;
+
+    while (!done) {
+      weeks.push(<Week key={date.toString()} date={date.clone()} month={this.state.month} select=    {this.select} selected={this.props.selected} />);
+      date.add(1, "w");
+      done = count++ > 2 && monthIndex !== date.month();
+      monthIndex = date.month();
+    }
+
+    return weeks;
+  };
+
+  renderMonthLabel() {
+    return <span>{this.state.month.format("MMMM, YYYY")}</span>;
   }
-}
+};
 
 export default Calendar;
