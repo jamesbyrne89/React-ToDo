@@ -1,9 +1,9 @@
 
 
 .app {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+background: #d3d3d3;
+min-height: 100vh;
+display: grid;
 }
 
 .date-picker {
@@ -12,4 +12,83 @@
   width: 600px;
   height: 400px;
   border: solid 2px hotpink;
+}
+
+
+/*------------------
+# Header
+-------------------*/
+
+.main-header {
+	height: 75px;
+	width: 100vw;
+	background: #554cd0;
+	margin-bottom: 2rem;
+	display: flex;
+	align-items: center;
+	padding: 0 5em;
+}
+
+.add-task-btn {
+	background: #77d2a3;
+	border: 0;
+	border-radius: 1rem;
+	padding: 0.75em 2.5em;
+	color: #fff;
+	font-weight: bold;
+}
+
+
+/*------------------
+# Sidebar
+-------------------*/
+
+.sidebar {
+	width: 120px;
+	background: #fff;
+	height: 100%;
+}
+
+
+
+/*------------------
+# Calendar
+-------------------*/
+
+.DayPicker {
+	background: #fff;
+}
+
+.DayPicker-NavBar {
+	display: flex !important;
+	justify-content: flex-start;
+}
+
+.DayPicker-Caption {
+	display: flex;
+	justify-content: flex-start;
+}
+
+.DayPicker-Weekday {
+	padding: 0.5em 1.5em !important;
+}
+
+.DayPicker-Day {
+	border: 0 !important;
+}
+
+.DayPicker-Week {
+	margin-top: 1rem;
+}
+
+.DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside) {
+	background-color: #8180a4 !important;
+}
+
+.DayPicker-Day--today {
+	color: #77d2a3 !important;
+}
+
+.DayPicker-NavButton {
+	stroke: red !important;
 }

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './../styles.css';
 import Calendar from './Calendar';
+import Header from './Header';
+import Sidebar from './Sidebar';
 
 class App extends Component {
 	  constructor(props) {
@@ -12,6 +14,8 @@ class App extends Component {
   render() {
     return (
       <div className="app">
+      <Header/>
+      <Sidebar/>
         <Calendar/>
       </div>
     );
