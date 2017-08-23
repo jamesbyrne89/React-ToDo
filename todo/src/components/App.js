@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './../styles.css';
-import Calendar from './Calendar';
+import Main from './Main';
 import Header from './Header';
 import Sidebar from './Sidebar';
 
@@ -16,7 +16,8 @@ class App extends Component {
       <div className="app">
       <Header/>
       <Sidebar/>
-        <Calendar/>
+      <Main/>
+        
       </div>
     );
   }

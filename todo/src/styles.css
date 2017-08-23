@@ -4,6 +4,8 @@
 background: #d3d3d3;
 min-height: 100vh;
 display: grid;
+grid-template-areas: "header header header"
+					"sidebar main main";
 }
 
 .date-picker {
@@ -27,6 +29,7 @@ display: grid;
 	display: flex;
 	align-items: center;
 	padding: 0 5em;
+	grid-area: header;
 }
 
 .add-task-btn {
@@ -47,8 +50,16 @@ display: grid;
 	width: 120px;
 	background: #fff;
 	height: 100%;
+	grid-area: sidebar;
 }
 
+/*------------------
+# Main Content
+-------------------*/
+
+.main-content {
+	grid-area: main;
+}
 
 
 /*------------------
