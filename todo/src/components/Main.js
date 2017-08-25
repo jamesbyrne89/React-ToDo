@@ -7,6 +7,8 @@ const Main = () => {
 return (
 
 	<main className='main-content'>
+		<section className='todo-wrapper'>
+		</section>
 		<Calendar/>
 	</main>
 
